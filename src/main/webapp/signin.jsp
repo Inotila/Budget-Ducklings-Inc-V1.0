@@ -23,7 +23,7 @@
                     <br>
                     <button type="submit">Sign In</button>
                 </form>
-                <p class="mt-3">Don't have an account? <a href="./signup.jsp">Create a new account</a></p>
+                <p class="mt-3">Don't have an account? <a href="./signup.jsp">Create a new account</a> </p>
             </div>
         </div>
     </div>
