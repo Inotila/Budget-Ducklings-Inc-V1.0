@@ -11,5 +11,8 @@ public class SignupServlet extends HttpServlet {
         String username = request.getParameter("username");
 
         response.getWriter().println("this is the username " + username);
+
+        response.sendRedirect("signin");
+
     }
 }
