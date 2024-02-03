@@ -13,7 +13,7 @@
             </div>
             <div class="text-center mt-3">
                 <!-- Add your signup form here -->
-                <form action="/Budget-Ducklings-Inc-/signup" method="post">
+                <form action="/0/signup" method="post">
                     <label for="username">Username:</label>
                     <input type="text" id="username" name="username" required>
                     <br>

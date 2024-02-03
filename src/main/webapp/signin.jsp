@@ -14,7 +14,7 @@
             </div>
             <div class="text-center mt-3">
                 <!-- Add your sign-in or create account form here -->
-                <form action="login" method="post">
+                <form action="signin" method="post">
                     <label for="username">Username:</label>
                     <input type="text" id="username" name="username" required>
                     <br>
