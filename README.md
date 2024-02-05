@@ -21,10 +21,15 @@ image.1
 7. Burger menu for mobile devices
 
 ## Actual Features (end product)
+1.Sign-up functionality for employees
+2.
+3.
+4.
+5.
 
 
 ## Future Features
-1.
+1. Secure sign-up (better security for passwords )
 2.
 3.
 4.
