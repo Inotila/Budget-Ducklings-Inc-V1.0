@@ -6,6 +6,10 @@
     <div class="row">
         <div class="col">
             <h1 class="text-center mt-3">Budget Ducklings Inc</h1>
+            <br>
+             <% if (session.getAttribute("username") != null) { %>
+                <p id="user-profile-link" class="text-center mt-1">Logged in: <a href="#"> <%= session.getAttribute("username") %> </a></p>
+             <% } %>
         </div>
     </div>
      <div class="row">
@@ -13,7 +17,11 @@
                 <a href="./invoice.jsp" class="mt-3">Invoices</a>
             </div>
             <div class="col text-center ">
-                <a href="./signin.jsp" class="mt-3">Sign-in</a>
+              <% if (session.getAttribute("username") == null) { %>
+                    <a id="signin-link" href="./signin.jsp" class="mt-3">Sign-in</a>
+              <% } else { %>
+                    <a id="signout-link" href="./signout.jsp" class="mt-3">Sign-out</a>
+              <% } %>
             </div>
      </div>
 </body>
