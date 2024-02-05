@@ -20,7 +20,7 @@
               <% if (session.getAttribute("username") == null) { %>
                     <a id="signin-link" href="./signin.jsp" class="mt-3">Sign-in</a>
               <% } else { %>
-                    <a id="signout-link" href="./signout.jsp" class="mt-3">Sign-out</a>
+                    <a id="signout-link" href="./logout.jsp" class="mt-3">Sign-out</a>
               <% } %>
             </div>
      </div>
