@@ -1,9 +1,7 @@
-
 package servlets;
 
 import connectors.DbConnector;
 import profiledb.Profile;
-
 import javax.servlet.annotation.WebServlet;
 import  javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -34,12 +32,9 @@ public class SignupServlet extends HttpServlet {
             // If successfully saved, set the session attribute for username
             HttpSession session = request.getSession();
             session.setAttribute("username", username);
-
-            response.getWriter().println("Profile created for username: " + username);
-            response.sendRedirect("signin");
+            response.sendRedirect("signupsuccess.jsp");
         } else {
             response.getWriter().println("Failed to create a profile for username: " + username);
-            // You might want to handle the failure gracefully, show an error message, redirect, etc.
         }
     }
 
