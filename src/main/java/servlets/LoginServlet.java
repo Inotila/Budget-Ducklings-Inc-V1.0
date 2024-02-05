@@ -2,6 +2,7 @@ package servlets;
 
 import dao.ProfileDao;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,7 +13,7 @@ import java.io.IOException;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
@@ -23,10 +24,11 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("username", username);
             // Redirect to the home page
-            response.sendRedirect("/index.jsp");
+            response.sendRedirect("index.jsp");
         } else {
             // Redirect back to the login page with an error message
-            response.sendRedirect("/login?error=1");
+            request.setAttribute("error", "Invalid username or password");
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
         }
     }
 }
