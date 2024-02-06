@@ -39,7 +39,6 @@ public class SignupServlet extends HttpServlet {
     }
 
     private boolean saveProfile(Profile profile) {
-        // Implement the logic to save the profile into the database
         String sql = "INSERT INTO profile (name, surname, username, password) VALUES (?, ?, ?, ?)";
 
         try (Connection connection = DbConnector.getConnection();

@@ -14,7 +14,7 @@
     </div>
      <div class="row">
             <div class="col text-center ">
-                <a href="./displayinvoices.jsp" class="mt-3">Invoices</a>
+                <a href="./viewinvoices.jsp" class="mt-3">Invoices</a>
                 <a href="./addinvoices.jsp" class="mt-3">Add Invoices</a>
             </div>
             <div class="col text-center ">

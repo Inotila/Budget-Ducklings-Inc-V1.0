@@ -20,9 +20,10 @@ public class ViewInvoicesServlet extends HttpServlet {
         List<Invoices> invoices = invoicesDao.getAllInvoices();
         System.out.println("Number of invoices retrieved: " + invoices.size());
 
-        // Set invoices as a request attribute
+        if (!invoices.isEmpty()) {
+            request.setAttribute("invoices", invoices);
+        }
         request.setAttribute("invoices", invoices);
-
         request.getRequestDispatcher("/viewinvoices.jsp").forward(request, response);
     }
 }

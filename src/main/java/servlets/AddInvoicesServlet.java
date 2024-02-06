@@ -36,7 +36,7 @@ public class AddInvoicesServlet extends HttpServlet {
         } catch (ParseException e) {
             e.printStackTrace();
             // Handle date parsing error
-            response.sendRedirect("/budget-ducklings-inc/error-page"); // Redirect to an error page
+            response.sendRedirect("/budget-ducklings-inc/error-page");
             return; // Exit the method to avoid further processing
         }
 

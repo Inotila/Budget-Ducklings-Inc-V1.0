@@ -28,13 +28,11 @@ public class SigninServlet extends HttpServlet {
         boolean isAuthenticated = profileDao.authenticateUser(username, password);
 
         if (isAuthenticated) {
-            // Set the session attribute for the authenticated user
             HttpSession session = request.getSession();
             session.setAttribute("username", username);
             // Redirect to the home page
             response.sendRedirect("index.jsp");
         } else {
-            // Forward back to the login page with an error message
             request.setAttribute("error", "Invalid username or password");
             request.getRequestDispatcher("/login.jsp").forward(request, response);
 

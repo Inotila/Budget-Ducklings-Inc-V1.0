@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
-<html>
 <%@ include file="/partials/head.jsp" %>
 
 <body>
@@ -14,8 +13,8 @@
         </div>
     </div>
     <div class="row">
-        <div class="col text-center"  >
-            <div id="invoice-table-container" class="mx-auto" style="width: 50%;">
+        <div class="col text-center">
+            <div id="invoice-table-container" class="mx-auto" style="width: 70%;">
                 <table class="table text-white">
                     <thead>
                         <tr>
@@ -56,13 +55,22 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
         $(document).ready(function () {
-            if ($('#invoice-table-container tbody').is(':empty')) {
+            function fetchInvoices() {
                 $.get('/budget-ducklings-inc/viewinvoices', function (data) {
-                    $('#invoice-table-container tbody').html(data);
+                    // Temporary div to hold the HTML data cause old code was duplicating entire html tags
+                    var tempDiv = $('<div>').html(data);
+
+                    // Extract the tbody content
+                    var tbodyContent = tempDiv.find('#invoice-table-container tbody').html();
+
+                    // Update the tbody with the extracted content
+                    $('#invoice-table-container tbody').html(tbodyContent);
                 }).fail(function (xhr, status, error) {
                     console.error('Error fetching invoices: ' + error);
                 });
             }
+            // Fetch when the page loads
+            fetchInvoices();
         });
     </script>
 </body>
