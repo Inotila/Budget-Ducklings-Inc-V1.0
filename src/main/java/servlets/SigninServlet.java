@@ -20,7 +20,7 @@ public class SigninServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        // Process the form submission here
+        // Process the form submission
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 

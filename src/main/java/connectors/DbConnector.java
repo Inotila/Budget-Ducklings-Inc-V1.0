@@ -17,7 +17,6 @@ public class DbConnector {
         String username = "root";
         String password = "Chicken1sDaB3st@1010";
         Connection connection = DriverManager.getConnection(jdbcUrl, username, password);
-        System.out.println("connected now");
         return connection;
     }
 }

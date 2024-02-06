@@ -14,15 +14,8 @@
     </div>
      <div class="row">
             <div class="col text-center ">
-                <a href="./displayinvoices.jsp" class="mt-3">Invoices</a>
-                <a href="./addinvoices.jsp" class="mt-3">Add Invoices</a>
-            </div>
-            <div class="col text-center ">
-              <% if (session.getAttribute("username") == null) { %>
-                    <a id="signin-link" href="./signin.jsp" class="mt-3">Sign-in</a>
-              <% } else { %>
-                    <a id="signout-link" href="./logout.jsp" class="mt-3">Sign-out</a>
-              <% } %>
+              <h1>Oops! Something went wrong.</h1>
+              <p>Error details: ${pageContext.errorData}</p>
             </div>
      </div>
 </body>

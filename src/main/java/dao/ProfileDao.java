@@ -15,11 +15,27 @@ public class ProfileDao {
             preparedStatement.setString(1, username);
             preparedStatement.setString(2, password);
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
-                return resultSet.next(); // Returns true if a matching user is found
+                return resultSet.next();
             }
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
+    }
+
+    public int getUserIdByUsername(String username) {
+        String sql = "SELECT id FROM Profile WHERE name = ?";
+        try (Connection connection = DbConnector.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setString(1, username);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    return resultSet.getInt("id");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
     }
 }

@@ -29,7 +29,7 @@ public class SignupServlet extends HttpServlet {
 
         // Insert the new profile into the database
         if (saveProfile(newProfile)) {
-            // If successfully saved, set the session attribute for username
+            // Set the session attribute for username
             HttpSession session = request.getSession();
             session.setAttribute("username", username);
             response.sendRedirect("signupsuccess.jsp");
