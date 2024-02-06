@@ -15,7 +15,7 @@
      <div class="row">
             <div class="col text-center ">
               <h1>Oops! Something went wrong.</h1>
-              <p>Error details: ${pageContext.errorData}</p>
+              <p>${requestScope.errorMessage}</p>
             </div>
      </div>
 </body>

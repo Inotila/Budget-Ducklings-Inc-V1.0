@@ -2,8 +2,10 @@ package servlets;
 
 import connectors.DbConnector;
 import profiledb.Profile;
+
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import  javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -14,27 +16,38 @@ import java.sql.SQLException;
 
 @WebServlet("/signup")
 public class SignupServlet extends HttpServlet {
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String username = request.getParameter("username");
-        String name = request.getParameter("name");
-        String surname = request.getParameter("surname");
-        String password = request.getParameter("password");
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        try {
+            String username = request.getParameter("username");
+            String name = request.getParameter("name");
+            String surname = request.getParameter("surname");
+            String password = request.getParameter("password");
 
-        // Create a Profile object with the user details
-        Profile newProfile = new Profile();
-        newProfile.setName(name);
-        newProfile.setUsername(username);
-        newProfile.setSurname(surname);
-        newProfile.setPassword(password);
+            // Create a Profile object with the user details
+            Profile newProfile = new Profile();
+            newProfile.setName(name);
+            newProfile.setUsername(username);
+            newProfile.setSurname(surname);
+            newProfile.setPassword(password);
 
-        // Insert the new profile into the database
-        if (saveProfile(newProfile)) {
-            // Set the session attribute for username
-            HttpSession session = request.getSession();
-            session.setAttribute("username", username);
-            response.sendRedirect("signupsuccess.jsp");
-        } else {
-            response.getWriter().println("Failed to create a profile for username: " + username);
+            // Insert the new profile into the database
+            if (saveProfile(newProfile)) {
+                // Set the session attribute for username
+                HttpSession session = request.getSession();
+                session.setAttribute("username", username);
+                response.sendRedirect("signupsuccess.jsp");
+            } else {
+                request.setAttribute("error", "Failed to create a profile for username: " + username);
+                request.setAttribute("errorMessage", "Error details: Failed to create a profile for username: " + username);
+                request.getRequestDispatcher("/error.jsp").forward(request, response);
+            }
+        } catch (Exception e) {
+            // Handle the exception
+            e.printStackTrace();
+            request.setAttribute("error", "An unexpected error occurred during signup.");
+            request.setAttribute("errorMessage", "Error details: An unexpected error occurred during signup.");
+            request.getRequestDispatcher("/error.jsp").forward(request, response);
+
         }
     }
 

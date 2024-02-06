@@ -30,12 +30,11 @@ public class SigninServlet extends HttpServlet {
         if (isAuthenticated) {
             HttpSession session = request.getSession();
             session.setAttribute("username", username);
-            // Redirect to the home page
             response.sendRedirect("index.jsp");
         } else {
             request.setAttribute("error", "Invalid username or password");
-            request.getRequestDispatcher("/login.jsp").forward(request, response);
-
+            request.setAttribute("errorMessage", "Error details: Invalid username or password");
+            request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
     }
 }
