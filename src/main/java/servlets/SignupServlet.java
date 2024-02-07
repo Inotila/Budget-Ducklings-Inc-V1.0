@@ -64,7 +64,7 @@ public class SignupServlet extends HttpServlet {
             // Execute the SQL query
             int rowsAffected = preparedStatement.executeUpdate();
 
-            return rowsAffected > 0; // Returns true if the profile is successfully inserted
+            return rowsAffected > 0;
         } catch (SQLException e) {
             e.printStackTrace();
             return false;

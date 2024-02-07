@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryDao {
-
     public List<Category> getAllCategories() {
         List<Category> categories = new ArrayList<>();
         String sql = "SELECT * FROM Category";

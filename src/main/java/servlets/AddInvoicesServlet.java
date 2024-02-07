@@ -22,7 +22,7 @@ public class AddInvoicesServlet extends HttpServlet {
         String paymentDateString = request.getParameter("payment_date");
         String expenseDescription = request.getParameter("expense_description");
         String priceString = request.getParameter("price");
-        int categoryId = Integer.parseInt(request.getParameter("category")); //
+        int categoryId = Integer.parseInt(request.getParameter("category"));
 
         // Additional user authentication
         String username = (String) request.getSession().getAttribute("username");
@@ -37,7 +37,7 @@ public class AddInvoicesServlet extends HttpServlet {
             e.printStackTrace();
             // Handle date parsing error
             response.sendRedirect("/budget-ducklings-inc/error-page");
-            return; // Exit the method to avoid further processing
+            return; // Exit the method preventing further processing
         }
 
         // Validate and parse price
@@ -47,7 +47,7 @@ public class AddInvoicesServlet extends HttpServlet {
         } catch (NumberFormatException e) {
             e.printStackTrace();
             // Handle price parsing error
-            response.sendRedirect("/budget-ducklings-inc/error-page"); // Redirect to an error page
+            response.sendRedirect("/budget-ducklings-inc/error-page");
             return; // Exit the method to avoid further processing
         }
 
@@ -58,15 +58,14 @@ public class AddInvoicesServlet extends HttpServlet {
         invoice.setExpenseDescription(expenseDescription);
         invoice.setPrice(price);
         invoice.setProfileId(profileId);
-        invoice.setCategoryId(categoryId); // Set the category_id
+        invoice.setCategoryId(categoryId);
 
         // Add the invoice using invoicesDao
         InvoicesDao invoicesDao = new InvoicesDao();
         if (invoicesDao.addInvoice(invoice)) {
-            // Invoice added successfully
-            response.sendRedirect("/budget-ducklings-inc/viewinvoices.jsp"); // Redirect to viewinvoices.jsp page
+            response.sendRedirect("/budget-ducklings-inc/viewinvoices.jsp");
         } else {
-            response.sendRedirect("/budget-ducklings-inc/error-page"); // Redirect to an error page
+            response.sendRedirect("/budget-ducklings-inc/error-page");
         }
     }
 }

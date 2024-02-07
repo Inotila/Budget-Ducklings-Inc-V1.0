@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class InvoicesDao {
@@ -69,6 +70,55 @@ public class InvoicesDao {
         try (Connection connection = DbConnector.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setInt(1, invoiceId);
+
+            int rowsAffected = preparedStatement.executeUpdate();
+            return rowsAffected > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public Invoices getInvoiceById(int invoiceId) {
+        Invoices invoice = null;
+        String sql = "SELECT * FROM Invoices WHERE id = ?";
+
+        try (Connection connection = DbConnector.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setInt(1, invoiceId);
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    invoice = new Invoices();
+                    invoice.setId(resultSet.getInt("id"));
+                    invoice.setTitle(resultSet.getString("title"));
+                    invoice.setPaymentDate(resultSet.getDate("payment_date"));
+                    invoice.setExpenseDescription(resultSet.getString("expense_description"));
+                    invoice.setPrice(resultSet.getDouble("price"));
+                    invoice.setProfileId(resultSet.getInt("profile_id"));
+                    invoice.setCategoryId(resultSet.getInt("category_id"));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return invoice;
+    }
+
+    public boolean updateInvoice(int invoiceId, String updatedTitle, Date updatedPaymentDate, String updatedExpenseDescription,
+                                 double updatedPrice, int updatedProfileId, int updatedCategoryId) {
+        String sql = "UPDATE Invoices SET title = ?, payment_date = ?, expense_description = ?, " +
+                "price = ?, profile_id = ?, category_id = ? WHERE id = ?";
+        try (Connection connection = DbConnector.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setString(1, updatedTitle);
+            preparedStatement.setDate(2, new java.sql.Date(updatedPaymentDate.getTime()));
+            preparedStatement.setString(3, updatedExpenseDescription);
+            preparedStatement.setDouble(4, updatedPrice);
+            preparedStatement.setInt(5, updatedProfileId);
+            preparedStatement.setInt(6, updatedCategoryId);
+            preparedStatement.setInt(7, invoiceId);
 
             int rowsAffected = preparedStatement.executeUpdate();
             return rowsAffected > 0;

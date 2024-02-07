@@ -15,7 +15,6 @@
                 <table class="table text-white">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Title</th>
                             <th>Payment Date</th>
                             <th>Expense Description</th>
@@ -30,7 +29,6 @@
                             if (invoicesList != null) {
                                 for (profiledb.Invoices invoice : invoicesList) { %>
                                     <tr>
-                                        <td><%= invoice.getId() %></td>
                                         <td><%= invoice.getTitle() %></td>
                                         <td><%= invoice.getPaymentDate() %></td>
                                         <td><%= invoice.getExpenseDescription() %></td>
