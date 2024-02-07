@@ -22,28 +22,26 @@ image.1
 
 ## Actual Features (end product)
 1.Sign-up functionality for employees
-2.
-3.
-4.
-5.
+2.Home page
+3.CRUD functionality for invoices
+4.Easy UX/UI
+5.Authenticated requirements to view certain pages or perform certain functions
 
 
 ## Future Features
 1. Secure sign-up (better security for passwords )
-2.
-3.
+2. Improve security for editing invoices
+3. Profile page so users can update their profile details and delete their profiles
 4.
 5.
 
 ## Testing
 
+I tested the webapp manually and all functions works as expected.
+
 ### User test
-
-### Signup, sign-in and sign-out test
-
-### Home page test
-
-### Invoice page test
+I asked my house mates to test the webapp by creating a new profile, add a new invoice and then edit and delete it. 
+And they were able to do this.
 
 ### Entity relationship diagram
 
