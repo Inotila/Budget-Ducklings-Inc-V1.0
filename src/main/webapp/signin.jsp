@@ -3,8 +3,9 @@
 <%@ include file="/partials/head.jsp" %>
 <body>
     <div class="row">
-        <div class="col">
-            <h1 class="text-center mt-3">Budget Ducklings Inc | Sign-in</h1>
+        <div class="col text-center">
+            <h1 class="text-center mt-3">Budget Ducklings</h1>
+              <a href="./index.jsp" >click here to return to home page</a>
         </div>
     </div>
     <div class="row">
@@ -21,7 +22,7 @@
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password" required>
                     <br>
-                    <button type="submit">Sign In</button>
+                    <button class="btn btn-success" type="submit">Sign In</button>
                 </form>
                 <p class="mt-3">Don't have an account? <a href="./signup.jsp">Create a new account</a> </p>
             </div>

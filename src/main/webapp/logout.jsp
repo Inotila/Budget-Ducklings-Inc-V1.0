@@ -14,10 +14,10 @@
     </div>
     <div class="row">
         <div class="col">
-            <div class="text-center mt-3">
+            <div class="text-center">
                 <form action="/budget-ducklings-inc/logout" method="post">
                     <p>would you like to logout?</p>
-                    <button type="submit">Yes|Logout</button>
+                    <button class="btn btn-warning" type="submit">Logout</button>
                 </form>
             </div>
         </div>

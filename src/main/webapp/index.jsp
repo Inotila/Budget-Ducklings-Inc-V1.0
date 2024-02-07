@@ -13,15 +13,16 @@
         </div>
     </div>
      <div class="row">
+            <% if (session.getAttribute("username") != null) { %>
             <div class="col text-center ">
-                <a href="./viewinvoices.jsp" class="mt-3">Invoices</a>
-                <a href="./addinvoices.jsp" class="mt-3">Add Invoices</a>
+                <a href="./viewinvoices.jsp" class="btn btn-primary mt-3">View Invoices</a>
             </div>
+             <% } %>
             <div class="col text-center ">
               <% if (session.getAttribute("username") == null) { %>
-                    <a id="signin-link" href="./signin.jsp" class="mt-3">Sign-in</a>
+                    <a id="signin-link" href="./signin.jsp" class="btn btn-primary mt-3">Sign-in</a>
               <% } else { %>
-                    <a id="signout-link" href="./logout.jsp" class="mt-3">Sign-out</a>
+                    <a id="signout-link" href="./logout.jsp" class="btn btn-warning mt-3">Sign-out</a>
               <% } %>
             </div>
      </div>

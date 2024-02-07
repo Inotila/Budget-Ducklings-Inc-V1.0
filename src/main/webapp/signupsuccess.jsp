@@ -3,11 +3,7 @@
 <%@ include file="/partials/head.jsp" %>
 
 <body>
-    <div class="row">
-        <div class="col">
-            <h1 class="text-center mt-3">Budget Ducklings Inc</h1>
-        </div>
-    </div>
+   <%@ include file="/partials/homerow.jsp" %>
      <div class="row">
             <div class="col text-center ">
                 <h2>Hi <%= session.getAttribute("username") %>! Your sign-up was successful!</h2>

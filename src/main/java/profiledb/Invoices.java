@@ -9,6 +9,8 @@ public class Invoices {
     private Date paymentDate;
     private String expenseDescription;
     private double price;
+    private String categoryTitle;
+    private String profileUsername;
     private int profileId; // Foreign key reference to the user's profile
     private int categoryId; // Foreign key reference to the category
 
@@ -43,6 +45,12 @@ public class Invoices {
     public int getCategoryId() {
         return categoryId;
     }
+    public String getCategoryTitle() {
+        return categoryTitle;
+    }
+    public String getProfileUsername() {
+        return profileUsername;
+    }
 
     // Setter methods
     public void setId(int id) {
@@ -75,6 +83,12 @@ public class Invoices {
 
     public void setCategoryId(int categoryId) {
         this.categoryId = categoryId;
+    }
+    public void setCategoryTitle(String categoryTitle) {
+        this.categoryTitle = categoryTitle;
+    }
+    public void setProfileUsername(String profileUsername) {
+        this.profileUsername = profileUsername;
     }
 }
 

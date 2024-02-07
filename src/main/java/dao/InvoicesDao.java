@@ -2,6 +2,7 @@ package dao;
 
 import connectors.DbConnector;
 import profiledb.Invoices;
+import profiledb.Profile;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,7 +24,7 @@ public class InvoicesDao {
             preparedStatement.setDouble(4, invoice.getPrice());
             preparedStatement.setInt(5, invoice.getProfileId());
             preparedStatement.setInt(6, invoice.getCategoryId());
-            System.out.println("test add");
+
             int rowsAffected = preparedStatement.executeUpdate();
             return rowsAffected > 0;
         } catch (SQLException e) {
@@ -33,9 +34,12 @@ public class InvoicesDao {
     }
 
     public List<Invoices> getAllInvoices() {
-        System.out.println("test get all");
         List<Invoices> invoices = new ArrayList<>();
-        String sql = "SELECT * FROM Invoices";
+        String sql =  "SELECT i.id, i.title, i.payment_date, i.expense_description, i.price, i.profile_id, i.category_id, " +
+                "c.title AS category_title, p.username " +
+                "FROM Invoices i " +
+                "JOIN Category c ON i.category_id = c.id " +
+                "JOIN Profile p ON i.profile_id = p.id";
         try (Connection connection = DbConnector.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql);
              ResultSet resultSet = preparedStatement.executeQuery()) {
@@ -49,6 +53,9 @@ public class InvoicesDao {
                 invoice.setPrice(resultSet.getDouble("price"));
                 invoice.setProfileId(resultSet.getInt("profile_id"));
                 invoice.setCategoryId(resultSet.getInt("category_id"));
+                invoice.setUsername(resultSet.getString("username"));
+                invoice.setCategoryTitle(resultSet.getString("category_title"));
+
                 invoices.add(invoice);
             }
         } catch (SQLException e) {

@@ -3,13 +3,10 @@
 <%@ include file="/partials/head.jsp" %>
 
 <body>
-    <div class="row">
-        <div class="col">
-            <h1 class="text-center mt-3">Budget Ducklings Inc</h1>
-            <br>
-            <% if (session.getAttribute("username") != null) { %>
-                <p id="user-profile-link" class="text-center mt-1">Logged in: <a href="#"> <%= session.getAttribute("username") %> </a></p>
-            <% } %>
+<%@ include file="/partials/homerow.jsp" %>
+ <div class="row">
+        <div class="col text-center">
+            <a href="./addinvoices.jsp" class="btn btn-primary mb-3">Add Invoices</a>
         </div>
     </div>
     <div class="row">
@@ -23,8 +20,8 @@
                             <th>Payment Date</th>
                             <th>Expense Description</th>
                             <th>Price</th>
-                            <th>Profile ID</th>
-                            <th>Category ID</th>
+                            <th>Logged by:</th>
+                            <th>Category</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,8 +35,8 @@
                                         <td><%= invoice.getPaymentDate() %></td>
                                         <td><%= invoice.getExpenseDescription() %></td>
                                         <td><%= invoice.getPrice() %></td>
-                                        <td><%= invoice.getProfileId() %></td>
-                                        <td><%= invoice.getCategoryId() %></td>
+                                        <td><%= invoice.getUsername() %></td>
+                                        <td><%= invoice.getCategoryTitle() %></td>
                                     </tr>
                                 <% }
                             } else { %>
