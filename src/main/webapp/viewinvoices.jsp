@@ -37,10 +37,13 @@
                                         <td><%= invoice.getPrice() %></td>
                                         <td><%= invoice.getUsername() %></td>
                                         <td><%= invoice.getCategoryTitle() %></td>
-                                        <td><form action="#" method="post">
-                                                <button class="btn btn-warning" type="submit">delete</button>
-                                            </form>
-                                        </td>
+                                       <% if (session.getAttribute("username") != null && session.getAttribute("username").equals(invoice.getUsername())) { %>
+                                          <td id="delete-row">
+                                              <form action="/budget-ducklings-inc/deleteinvoice" method="post">
+                                                  <button class="btn btn-warning" type="submit">Delete</button>
+                                              </form>
+                                          </td>
+                                       <% } %>
                                     </tr>
                                 <% }
                             } else { %>

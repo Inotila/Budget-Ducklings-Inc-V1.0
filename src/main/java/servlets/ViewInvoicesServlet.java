@@ -18,7 +18,6 @@ public class ViewInvoicesServlet extends HttpServlet {
         // Retrieve all invoices using the invoicesDao
         InvoicesDao invoicesDao = new InvoicesDao();
         List<Invoices> invoices = invoicesDao.getAllInvoices();
-        System.out.println("Number of invoices retrieved: " + invoices.size());
 
         if (!invoices.isEmpty()) {
             request.setAttribute("invoices", invoices);
