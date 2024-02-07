@@ -40,7 +40,8 @@
                                        <% if (session.getAttribute("username") != null && session.getAttribute("username").equals(invoice.getUsername())) { %>
                                           <td id="delete-row">
                                               <form action="/budget-ducklings-inc/deleteinvoice" method="post">
-                                                  <button class="btn btn-warning" type="submit">Delete</button>
+                                                <input type="hidden" name="invoiceId" value="<%= invoice.getId() %>">
+                                                <button class="btn btn-warning" type="submit">Delete</button>
                                               </form>
                                           </td>
                                        <% } %>

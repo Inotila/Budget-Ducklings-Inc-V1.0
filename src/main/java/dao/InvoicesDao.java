@@ -63,6 +63,20 @@ public class InvoicesDao {
         }
         return invoices;
     }
+
+    public boolean deleteInvoice(int invoiceId) {
+        String sql = "DELETE FROM Invoices WHERE id = ?";
+        try (Connection connection = DbConnector.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setInt(1, invoiceId);
+
+            int rowsAffected = preparedStatement.executeUpdate();
+            return rowsAffected > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
 
 
