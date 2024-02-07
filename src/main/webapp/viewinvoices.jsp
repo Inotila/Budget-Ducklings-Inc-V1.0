@@ -38,12 +38,18 @@
                                         <td><%= invoice.getUsername() %></td>
                                         <td><%= invoice.getCategoryTitle() %></td>
                                        <% if (session.getAttribute("username") != null && session.getAttribute("username").equals(invoice.getUsername())) { %>
-                                          <td id="delete-row">
-                                              <form action="/budget-ducklings-inc/deleteinvoice" method="post">
-                                                <input type="hidden" name="invoiceId" value="<%= invoice.getId() %>">
-                                                <button class="btn btn-warning" type="submit">Delete</button>
-                                              </form>
-                                          </td>
+                                        <td id="delete-row">
+                                            <form action="/budget-ducklings-inc/deleteinvoice" method="post">
+                                              <input type="hidden" name="invoiceId" value="<%= invoice.getId() %>">
+                                              <button class="btn btn-warning" type="submit">Delete</button>
+                                            </form>
+                                        </td>
+                                        <td id="delete-row">
+                                            <form action="/budget-ducklings-inc/editinvoice" method="post">
+                                              <input type="hidden" name="invoiceId" value="<%= invoice.getId() %>">
+                                              <button class="btn btn-info" type="submit">Edit</button>
+                                            </form>
+                                        </td>
                                        <% } %>
                                     </tr>
                                 <% }
