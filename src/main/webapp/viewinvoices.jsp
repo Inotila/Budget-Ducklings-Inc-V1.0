@@ -37,6 +37,10 @@
                                         <td><%= invoice.getPrice() %></td>
                                         <td><%= invoice.getUsername() %></td>
                                         <td><%= invoice.getCategoryTitle() %></td>
+                                        <td><form action="#" method="post">
+                                                <button class="btn btn-warning" type="submit">delete</button>
+                                            </form>
+                                        </td>
                                     </tr>
                                 <% }
                             } else { %>
