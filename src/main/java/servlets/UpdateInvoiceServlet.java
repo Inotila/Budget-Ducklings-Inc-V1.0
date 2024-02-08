@@ -20,12 +20,10 @@ public class UpdateInvoiceServlet extends HttpServlet {
             Date updatedPaymentDate = Date.valueOf(request.getParameter("payment_date"));
             String updatedExpenseDescription = request.getParameter("expense_description");
             double updatedPrice = Double.parseDouble(request.getParameter("price"));
-            int updatedProfileId = Integer.parseInt(request.getParameter("profile_id"));
-            int updatedCategoryId = Integer.parseInt(request.getParameter("category_id"));
 
             InvoicesDao invoicesDao = new InvoicesDao();
             boolean success = invoicesDao.updateInvoice(invoiceId, updatedTitle, updatedPaymentDate, updatedExpenseDescription,
-                    updatedPrice, updatedProfileId, updatedCategoryId);
+                    updatedPrice);
 
             if (success) {
                 response.sendRedirect(request.getContextPath() + "/viewinvoices");

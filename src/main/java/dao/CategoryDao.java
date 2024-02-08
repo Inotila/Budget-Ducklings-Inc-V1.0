@@ -31,6 +31,25 @@ public class CategoryDao {
         return categories;
     }
 
+    public Category getCategoryById(int categoryId) {
+        Category category = null;
+        String sql = "SELECT * FROM Category WHERE id = ?";
+        try (Connection connection = DbConnector.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setInt(1, categoryId);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    category = new Category();
+                    category.setId(resultSet.getInt("id"));
+                    category.setTitle(resultSet.getString("title"));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return category;
+    }
+
     public boolean addCategory(Category category) {
         String sql = "INSERT INTO Category (title) VALUES (?)";
         try (Connection connection = DbConnector.getConnection();

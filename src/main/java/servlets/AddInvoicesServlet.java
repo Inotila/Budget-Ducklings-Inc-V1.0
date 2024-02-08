@@ -1,8 +1,10 @@
 package servlets;
 
+import dao.CategoryDao;
 import dao.InvoicesDao;
 import dao.ProfileDao;
 import profiledb.Invoices;
+import profiledb.Category;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -59,6 +61,15 @@ public class AddInvoicesServlet extends HttpServlet {
         invoice.setPrice(price);
         invoice.setProfileId(profileId);
         invoice.setCategoryId(categoryId);
+        invoice.setUsername(username);
+
+        CategoryDao categoryDao = new CategoryDao();
+        Category category = categoryDao.getCategoryById(categoryId);
+        if (category != null) {
+            String categoryTitle = category.getTitle();
+            System.out.println("Category Title: " + categoryTitle);
+            invoice.setCategoryTitle(category.getTitle());
+        }
 
         // Add the invoice using invoicesDao
         InvoicesDao invoicesDao = new InvoicesDao();

@@ -15,8 +15,8 @@ import java.util.List;
 public class InvoicesDao {
 
     public boolean addInvoice(Invoices invoice) {
-        String sql = "INSERT INTO Invoices (title, payment_date, expense_description, price, profile_id, category_id) " +
-                "VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Invoices (title, payment_date, expense_description, price, profile_id, category_id, category_title,username) " +
+                "VALUES (?, ?, ?, ?, ?, ?,?,?)";
         try (Connection connection = DbConnector.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setString(1, invoice.getTitle());
@@ -25,6 +25,8 @@ public class InvoicesDao {
             preparedStatement.setDouble(4, invoice.getPrice());
             preparedStatement.setInt(5, invoice.getProfileId());
             preparedStatement.setInt(6, invoice.getCategoryId());
+            preparedStatement.setString(7, invoice.getCategoryTitle());
+            preparedStatement.setString(8, invoice.getUsername());
 
             int rowsAffected = preparedStatement.executeUpdate();
             return rowsAffected > 0;
@@ -107,18 +109,16 @@ public class InvoicesDao {
     }
 
     public boolean updateInvoice(int invoiceId, String updatedTitle, Date updatedPaymentDate, String updatedExpenseDescription,
-                                 double updatedPrice, int updatedProfileId, int updatedCategoryId) {
+                                 double updatedPrice) {
         String sql = "UPDATE Invoices SET title = ?, payment_date = ?, expense_description = ?, " +
-                "price = ?, profile_id = ?, category_id = ? WHERE id = ?";
+                "price = ? WHERE id = ?";
         try (Connection connection = DbConnector.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setString(1, updatedTitle);
             preparedStatement.setDate(2, new java.sql.Date(updatedPaymentDate.getTime()));
             preparedStatement.setString(3, updatedExpenseDescription);
             preparedStatement.setDouble(4, updatedPrice);
-            preparedStatement.setInt(5, updatedProfileId);
-            preparedStatement.setInt(6, updatedCategoryId);
-            preparedStatement.setInt(7, invoiceId);
+            preparedStatement.setInt(5, invoiceId);
 
             int rowsAffected = preparedStatement.executeUpdate();
             return rowsAffected > 0;

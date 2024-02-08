@@ -35,12 +35,6 @@
                 <label for="price">Price:</label>
                 <input type="text" id="price" name="price" value="<%= invoice.getPrice() %>">
                 <br>
-                <label for="profile_id">Profile ID:</label>
-                <input type="text" id="profile_id" name="profile_id" value="<%= invoice.getProfileId() %>" readonly>
-                <br>
-                <label for="category_id">Category ID:</label>
-                <input type="text" id="category_id" name="category_id" value="<%= invoice.getCategoryId() %>" readonly>
-                <br>
                 <button class="btn btn-primary" type="submit">Update</button>
             <% } else { %>
                 <p>Error: Unable to retrieve invoice details.</p>
