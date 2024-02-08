@@ -38,7 +38,6 @@ Employees can create and edit invoice to report their expenses.
 5.Authenticated requirements to view certain pages or perform certain functions
 Authenticated login and secure user rights
 
-
 ## Future Features
 1. Secure sign-up (better security for passwords )
 2. Improve security for editing invoices
@@ -53,7 +52,7 @@ I asked my house mates to test the webapp by creating a new profile, add a new i
 And they were able to do this.
 
 ### Entity Relationship
-Profile: which has a name, surname, and password; 
+Profile: name, surname, and password; 
 invoices:  title, date of payment; description of expenses,
 category (which is a foreign key/choice field), price; Category: title.
 
