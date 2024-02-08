@@ -24,7 +24,6 @@ public class CategoryDao {
                 category.setTitle(resultSet.getString("title"));
                 categories.add(category);
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }

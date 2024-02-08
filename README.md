@@ -2,15 +2,25 @@
 
 This project is for my submission for my JDBC project
 
-## About by_ino_ati
+## About App
 A java web app for expense reporting
+
+it has pre-saved profiles that can be used to log in:
++----------------+----------+
+| username       | password |
++----------------+----------+
+| Einstein       | 1        |
+| Cruella de Vil | 1        |
+| Frankenstein   | 1        |
+| Quasimodo      | 1        |
++----------------+----------+
+
 
 ## Value
 
 Employees can create and edit invoice to report their expenses.
 
 ## Potential features (before starting)
-image.1
 
 1. Authenticated login and secure user rights
 2. Home page
@@ -33,8 +43,6 @@ Authenticated login and secure user rights
 1. Secure sign-up (better security for passwords )
 2. Improve security for editing invoices
 3. Profile page so users can update their profile details and delete their profiles
-4.
-5.
 
 ## Testing
 
@@ -58,18 +66,17 @@ category (which is a foreign key/choice field), price; Category: title.
 ## Unfixed bugs
 
 ## Validator testing
-
-## Deployment
-
-This work is deployed on Apache Tomcat/9.0.85
+None as of last update
 
 ### Local Deployment
+This work is deployed on Apache Tomcat/9.0.85
 
 ## Credits/Reference
 This work is the original work of Inotila Nghaamwa, however the following resources were used to supplement:
 
 ### Code
-
+All code used is the property of Inotila Nghaamwa with the aid of YouTube tutorials, online materials from Azomo
+W3Schools and similar communities and pages.
 ### Media
 All images used are the property of Inotila Nghaamwa.
 

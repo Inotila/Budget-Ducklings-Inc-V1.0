@@ -4,7 +4,7 @@ public class Category {
     private int id;
     private String title;
 
-    // Getter methods
+    // Get methods
     public int getId() {
         return id;
     }
@@ -13,7 +13,7 @@ public class Category {
         return title;
     }
 
-    // Setter methods
+    // Set methods
     public void setId(int id) {
         this.id = id;
     }

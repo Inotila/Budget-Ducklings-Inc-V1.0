@@ -2,7 +2,6 @@ package dao;
 
 import connectors.DbConnector;
 import profiledb.Invoices;
-import profiledb.Profile;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -104,7 +103,6 @@ public class InvoicesDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return invoice;
     }
 

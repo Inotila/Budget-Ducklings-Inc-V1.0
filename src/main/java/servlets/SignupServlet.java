@@ -30,7 +30,7 @@ public class SignupServlet extends HttpServlet {
             newProfile.setSurname(surname);
             newProfile.setPassword(password);
 
-            // Insert the new profile into the database
+            // Add new profile into the database
             if (saveProfile(newProfile)) {
                 // Set the session attribute for username
                 HttpSession session = request.getSession();

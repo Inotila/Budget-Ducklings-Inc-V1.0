@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class DbConnector {
     public static Connection getConnection() throws SQLException {
         try {
-            // Attempt to load the MySQL JDBC driver
+            // load the MySQL JDBC driver
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             throw new SQLException("MySQL JDBC Driver not found", e);

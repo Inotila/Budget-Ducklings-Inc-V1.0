@@ -55,6 +55,7 @@ public class AddInvoicesServlet extends HttpServlet {
 
         // Create Invoices object
         Invoices invoice = new Invoices();
+
         invoice.setTitle(title);
         invoice.setPaymentDate(paymentDate);
         invoice.setExpenseDescription(expenseDescription);
