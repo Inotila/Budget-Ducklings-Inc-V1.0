@@ -3,6 +3,7 @@
 <%@ include file="/partials/head.jsp" %>
 <body>
 <%@ include file="/partials/homerow.jsp" %>
+<% if (session.getAttribute("username") != null) { %>
 <div class="row">
     <div class="col">
         <h2 class="text-center mt-1">Add Expense</h2>
@@ -37,5 +38,6 @@
         </div>
     </div>
 </div>
+<% } %>
 </body>
 </html>
