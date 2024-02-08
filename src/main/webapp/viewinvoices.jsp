@@ -4,6 +4,7 @@
 
 <body>
 <%@ include file="/partials/homerow.jsp" %>
+ <% if (session.getAttribute("username") != null) { %>
  <div class="row">
         <div class="col text-center">
             <a href="./addinvoices.jsp" class="btn btn-primary mb-3">Add Invoices</a>
@@ -82,5 +83,6 @@
             fetchInvoices();
         });
     </script>
+ <% } %>
 </body>
 </html>
