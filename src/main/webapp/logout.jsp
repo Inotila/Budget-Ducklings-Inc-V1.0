@@ -17,7 +17,7 @@
             <div class="text-center">
                 <form action="/budget-ducklings-inc/logout" method="post">
                     <p>would you like to logout?</p>
-                    <button class="btn btn-warning" type="submit">Logout</button>
+                    <button class="btn btn-danger" type="submit">Logout</button>
                 </form>
             </div>
         </div>

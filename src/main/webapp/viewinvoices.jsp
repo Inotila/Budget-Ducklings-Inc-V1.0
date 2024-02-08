@@ -67,7 +67,7 @@
         $(document).ready(function () {
             function fetchInvoices() {
                 $.get('/budget-ducklings-inc/viewinvoices', function (data) {
-                    // Temporary div to hold the HTML data cause old code was duplicating entire html tags
+                    // Temporary div to hold the HTML data
                     var tempDiv = $('<div>').html(data);
 
                     // Extract the tbody content
