@@ -26,6 +26,7 @@ image.1
 3.CRUD functionality for invoices
 4.Easy UX/UI
 5.Authenticated requirements to view certain pages or perform certain functions
+Authenticated login and secure user rights
 
 
 ## Future Features
@@ -43,17 +44,10 @@ I tested the webapp manually and all functions works as expected.
 I asked my house mates to test the webapp by creating a new profile, add a new invoice and then edit and delete it. 
 And they were able to do this.
 
-### Entity relationship diagram
-
-I created this entity relationship diagram to guide me in creating my data structure in the models.
-
-![an image of the mock-ups done during the design process]()
-![an image of the mock-ups done during the design process]()
-
-### Wireframes
-I designed a wireframe to aid me in designing the frontend.
-
-![an image of the mock-ups done during the design process]()
+### Entity Relationship
+Profile: which has a name, surname, and password; 
+invoices:  title, date of payment; description of expenses,
+category (which is a foreign key/choice field), price; Category: title.
 
 ## Bugs and fixes
 
@@ -66,6 +60,8 @@ I designed a wireframe to aid me in designing the frontend.
 ## Validator testing
 
 ## Deployment
+
+This work is deployed on Apache Tomcat/9.0.85
 
 ### Local Deployment
 
