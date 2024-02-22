@@ -5,17 +5,6 @@ This project is for my submission for my JDBC project
 ## About App
 A java web app for expense reporting
 
-it has pre-saved profiles that can be used to log in:
-+----------------+----------+
-| username       | password |
-+----------------+----------+
-| Einstein       | 1        |
-| Cruella de Vil | 1        |
-| Frankenstein   | 1        |
-| Quasimodo      | 1        |
-+----------------+----------+
-
-
 ## Value
 
 Employees can create and edit invoice to report their expenses.
